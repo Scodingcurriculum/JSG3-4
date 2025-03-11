@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // Function to display a value in the calculator input field
+        function dis(val) {
+            // Get the input field and append the clicked value to it
+            document.getElementById("result").value += val;
+        }
+
+        // Function to evaluate the expression and display the result
+        function solve() {
+            // Get the current expression from the input field
+            let x = document.getElementById("result").value;
+            // Use the JavaScript eval() function to calculate the result
+            let y = eval(x);
+            // Display the result in the input field
+            document.getElementById("result").value = y;
+        }
+
+        // Function to clear the calculator display
+        function clr() {
+            // Clear the input field
+            document.getElementById("result").value = "";
+        }
+    </script>
+    <style>
+        /* Styling for the calculator */
+        .title {
+            margin-bottom: 10px;
+            text-align: center;
+            width: 210px;
+            color: green;
+            border: solid black 2px;
+        }
+
+        input[type="button"] {
+            background-color: plum;
+            color: black;
+            border: solid black 2px;
+            width: 100%;
+        }
+
+        input[type="text"] {
+            background-color: white;
+            border: solid black 2px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Create a table for the calculator layout -->
+    <table border="1">
+        <tr>
+            <td colspan="3"><input type="text" id="result" /></td>
+            <!-- Clear button: When clicked, it calls the clr() function to clear the input field -->
+            <td><input type="button" value="c" onclick="clr()" /></td>
+        </tr>
+        <tr>
+            <!-- Create buttons and assign values to each button -->
+            <!-- When clicked, dis('1') calls the dis() function to display '1' in the input field -->
+            <td><input type="button" value="1" onclick="dis('1')" /></td>
+            <td><input type="button" value="2" onclick="dis('2')" /></td>
+            <td><input type="button" value="3" onclick="dis('3')" /></td>
+            <td><input type="button" value="/" onclick="dis('/')" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick="dis('4')" /></td>
+            <td><input type="button" value="5" onclick="dis('5')" /></td>
+            <td><input type="button" value="6" onclick="dis('6')" /></td>
+            <td><input type="button" value="-" onclick="dis('-')" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7" onclick="dis('7')" /></td>
+            <td><input type="button" value="8" onclick="dis('8')" /></td>
+            <td><input type="button" value="9" onclick="dis('9')" /></td>
+            <td><input type="button" value="+" onclick="dis('+')" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="." onclick="dis('.')" /></td>
+            <td><input type="button" value="0" onclick="dis('0')" /></td>
+            <!-- Equals button: When clicked, it calls the solve() function to evaluate and display the result -->
+            <td><input type="button" value="=" onclick="solve()" /></td>
+            <td><input type="button" value="*" onclick="dis('*')" /></td>
+        </tr>
+    </table>
+</body>
+</html>
